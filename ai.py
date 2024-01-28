@@ -22,7 +22,7 @@ st.markdown(
 st.markdown("<h1 style='text-align: center; color: #ff6600;'><strong>Kiran GPT</strong></h1>", unsafe_allow_html=True)
 
 # Initialize GooglePalm model
-api_key = "AIzaSyA4ACANQRcchCNDXamY0Neyp9Yo_2dvK8w"
+api_key = "YOUR_API_KEY"
 google_palm = GooglePalm(google_api_key=api_key, temperature=0.7)
 
 # Function to generate predictions
@@ -35,28 +35,16 @@ def generate_prediction(prompt):
 
 # Streamlit App
 def main():
-    # Store user prompts
-    prompts = []
+    # User input section
+    prompt = st.text_input("You:")
 
-    # Display user input and generate responses
-    while True:
-        prompt = st.text_input("You:", key=len(prompts))
-        if prompt:
-            prompts.append(prompt)
-            response = generate_prediction(prompt)
+    if st.button("Add Prompt"):
+        response = generate_prediction(prompt)
+        st.text_area("Kiran GPT:", value=response, height=150)
 
-            # Display response with colorful text
-            if response == "My Owner Kiran did not train me for this content.":
-                st.error("Kiran GPT:", response)
-            else:
-                st.success("Kiran GPT: " + response)
-
-        if st.button("Clear" + str(len(prompts))):
-            prompts.clear()
-            st.text("Conversation cleared.")
-        
-        if not st.button("Add Prompt"):
-            break
+    if st.button("Clear"):
+        st.text_input("You:", value="")
+        st.text_area("Kiran GPT:", value="")
 
 if __name__ == "__main__":
     main()
