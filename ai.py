@@ -36,13 +36,13 @@ def generate_prediction(prompt):
 # Streamlit App
 def main():
     # Store user prompts
-    prompts = []
+    #prompts = []
 
     # Display user input and generate responses
     while True:
         prompt = st.text_input("You:", key=len(prompts))
         if prompt:
-            prompts.append(prompt)
+            #prompts.append(prompt)
             response = generate_prediction(prompt)
 
             # Display response with colorful text
