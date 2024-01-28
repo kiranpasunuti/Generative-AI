@@ -51,7 +51,7 @@ def main():
             else:
                 st.success("Kiran GPT: " + response)
 
-        if st.button("Clear"+str(len(prompts))):
+        if st.button("Clear" + str(len(prompts))):
             prompts.clear()
             st.text("Conversation cleared.")
         
