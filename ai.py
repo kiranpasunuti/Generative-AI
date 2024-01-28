@@ -49,7 +49,7 @@ def main():
             if response == "My Owner Kiran did not train me for this content.":
                 st.error("Kiran GPT:", response)
             else:
-                st.success("Kiran GPT:", response)
+                st.success("Kiran GPT: " + response)
 
         if st.button("Clear"):
             prompts.clear()
