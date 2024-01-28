@@ -22,7 +22,7 @@ st.markdown(
 st.markdown("<h1 style='text-align: center; color: #ff6600;'><strong>Kiran GPT</strong></h1>", unsafe_allow_html=True)
 
 # Initialize GooglePalm model
-api_key = "YOUR_GOOGLE_API_KEY_HERE"
+api_key = "AIzaSyA4ACANQRcchCNDXamY0Neyp9Yo_2dvK8w"
 google_palm = GooglePalm(google_api_key=api_key, temperature=0.7)
 
 # Function to generate predictions
