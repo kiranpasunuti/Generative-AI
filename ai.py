@@ -35,16 +35,23 @@ def generate_prediction(prompt):
 
 # Streamlit App
 def main():
-    # User input section
-    prompt = st.text_input("You:")
+    # Store user prompts
+    prompts = []
 
-    if st.button("Add Prompt"):
-        response = generate_prediction(prompt)
-        st.text_area("Kiran GPT:", value=response, height=150)
+    # Display user input and generate responses
+    while True:
+        prompt = st.text_input("You:", key=len(prompts))
+        if prompt:
+            prompts.append(prompt)
+            response = generate_prediction(prompt)
 
-    if st.button("Clear"):
-        st.text_input("You:", value="")
-        st.text_area("Kiran GPT:", value="")
+            # Display response with colorful text
+            if response == "My Owner Kiran did not train me for this content.":
+                st.error("Kiran GPT:", response)
+            else:
+                st.success("Kiran GPT: " + response)
+
+        
 
 if __name__ == "__main__":
     main()
